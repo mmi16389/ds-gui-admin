@@ -41,7 +41,7 @@
 				:disabled="!valid"
 				color="primary"
 				class="mr-4"
-				@click="actions"
+				@click.stop.prevent="actions"
 			>
 				{{ action==='update'?'METTRE A JOUR':'ENREGISTRER' }}
 			</v-btn>
@@ -102,6 +102,7 @@
 					this.validate();
 					break;
 				case 'update':
+					this.update();
 					break;
 			}
 		}
@@ -118,9 +119,15 @@
 
 		validate() {
 			if (this.$refs.form.validate()) {
-				this.costumer.id = Math.floor(Math.random() * 100);
-				this.$store.dispatch('costumersWorkflow/addCostumer', this.costumer);
+				this.$http.admin.addCostumer(this.costumer);
+			}
+		}
+
+		update() {
+			if (this.$refs.form.validate()) {
+				this.$http.admin.updateCostumer(this.costumer);
 				this.$router.push({ name: 'home' });
+				// this.$emit('close-popup', 'true');
 			}
 		}
 

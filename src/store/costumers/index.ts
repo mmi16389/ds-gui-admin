@@ -17,17 +17,31 @@ export const actions: ActionTree<CostumersState, RootState> = {
 	},
 	addCostumer: (context, payload: Costumer) => {
 		context.commit('ADD_COSTUMER', payload);
+	},
+	updateCostumer: (context, payload: Costumer) => {
+		context.commit('UPDATE_COSTUMER', payload);
 	}
 };
 /**
  *
  */
 export const mutations: MutationTree<CostumersState> = {
-	LOAD_COSTUMERS(state, costumers: Costumer[]) {
+	LOAD_COSTUMERS: (state, costumers: Costumer[]) => {
 		state.costumers = costumers;
 	},
-	ADD_COSTUMER(state, costumers: Costumer) {
+	ADD_COSTUMER: (state, costumers: Costumer) => {
+		// @ts-ignore
 		state.costumers?.push(costumers);
+		console.log(' sate ', state.costumers)
+	},
+	UPDATE_COSTUMER: (state, costumer: Costumer) => {
+		let u = -1;
+		// @ts-ignore
+		u = state.costumers.findIndex((costumer: Costumer) => costumer.id === costumer.id);
+		if (u !== -1) {
+			// @ts-ignore
+			state.costumers[u] = costumer;
+		}
 	}
 };
 /**

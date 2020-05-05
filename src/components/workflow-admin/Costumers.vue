@@ -37,10 +37,10 @@
 	import Component, { mixins } from 'vue-class-component';
 	import Vue from 'vue';
 	import { AxiosResponse } from 'axios';
+	import store from '@/store';
 
 	@Component
 	export default class Costumers extends Vue {
-		costumers = [];
 		searchTerm = '';
 
 		get headers() {
@@ -52,18 +52,19 @@
 			return '';
 		}
 
-		mounted() {
-			this.costumers = this.$store.getters['costumersWorkflow/costumers'];
+		get costumers() {
+			return this.$store.getters['costumersWorkflow/costumers'];
 		}
 
 		itemClicked($event: any) {
-			this.$router.push({ name:'costumers-details',query: { dialog: 'true',costumer:$event } }).catch(()=>{});
+			this.$router.push({ name: 'costumers-details', query: { dialog: 'true', costumer: $event } }).catch(() => {
+			});
 		}
 
-	/*allCostumers() {
+		allCostumers() {
 			this.$http.admin.getAllAdmin().then((resp: AxiosResponse) => {
-				this.costumers = resp.data;
+				this.$store.dispatch('costumersWorkflow/loadCostumers', resp.data);
 			});
-		}*/
+		}
 	}
 </script>

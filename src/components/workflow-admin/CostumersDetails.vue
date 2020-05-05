@@ -23,7 +23,10 @@
 					</v-btn>
 				</v-card-title>
 				<v-card-text>
-					<CostumerForm :action="'update'" />
+					<CostumerForm
+						:action="'update'"
+						@close-popup="dialog=false"
+					/>
 				</v-card-text>
 			</v-card>
 		</v-dialog>
@@ -36,11 +39,11 @@
 
 	@Component
 	export default class CostumersDetails extends Vue {
-        dialog = true;
-		created() {}
+		dialog = true;
+
 		close() {
-			this.dialog =false;
-			this.$router.push({ name:'home' });
+			this.dialog = false;
+			this.$router.push({ name: 'home' });
 		}
 	}
 </script>

@@ -22,10 +22,10 @@ declare const MAINTENANCE: string;
 const routes = [
 	{
 		path: '/',
-		redirect: '/costumer/'
+		redirect: '/costumer'
 	},
 	{
-		path: '/costumer/',
+		path: '/costumer',
 		component: () => import(/* webpackChunkName: costumers-home */ './views/CostumersView.vue'),
 		children: [
 			{
