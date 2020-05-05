@@ -9,12 +9,12 @@
 				<v-spacer />
 				<VBtn
 					class="ml-2"
-					@click="$router.back()"
+					@click="$router.push({name:'home'})"
 				>
 					RETOUR
 				</VBtn>
 			</v-card-title>
-			<CostumerForm />
+			<CostumerForm :action="'add'" />
 		</v-card>
 	</v-app>
 </template>

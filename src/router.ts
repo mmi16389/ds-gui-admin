@@ -5,7 +5,6 @@ import VueMeta from 'vue-meta';
 
 import i18n, { loadLanguageAsync } from '@/i18n';
 import store from '@/store';
-import { allCostumers } from '@/mixins/costumers.mixins';
 import costumersList from '@/components/workflow-admin/Costumers.vue';
 import costumersAdd from '@/components/workflow-admin/CostumersNew.vue'
 // Directly import Home view for faster rendering of first page
@@ -125,9 +124,9 @@ router.beforeEach((to, from, next) => {
 		}
 	});
 });
-router.afterEach( (to, from) => {
+/*router.afterEach( (to, from) => {
 	if ('home' === to.name) {
 		allCostumers();
 	}
-});
+});*/
 export default router;

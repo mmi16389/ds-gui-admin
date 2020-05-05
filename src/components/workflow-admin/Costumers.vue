@@ -57,13 +57,13 @@
 		}
 
 		itemClicked($event: any) {
-			this.$router.push({ name:'costumers-details',query: { dialog: 'true',costumer:this.costumers } }).catch(()=>{});
+			this.$router.push({ name:'costumers-details',query: { dialog: 'true',costumer:$event } }).catch(()=>{});
 		}
 
-		allCostumers() {
+	/*allCostumers() {
 			this.$http.admin.getAllAdmin().then((resp: AxiosResponse) => {
 				this.costumers = resp.data;
 			});
-		}
+		}*/
 	}
 </script>

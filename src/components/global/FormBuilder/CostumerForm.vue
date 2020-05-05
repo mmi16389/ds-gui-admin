@@ -41,17 +41,17 @@
 				:disabled="!valid"
 				color="primary"
 				class="mr-4"
-				@click="validate"
+				@click="actions"
 			>
-				SOUMETTRE
+				{{ action==='update'?'METTRE A JOUR':'ENREGISTRER' }}
 			</v-btn>
 
 			<v-btn
 				color="success"
 				class="mr-4"
-				@click="reset"
+				@click="mod"
 			>
-				REINITIALISER
+				{{ action==='update'?'SUPPRIMER':'RAFRAICHIR' }}
 			</v-btn>
 		</VForm>
 	</v-app>
@@ -62,8 +62,17 @@
 	import Vue from 'vue';
 	import { Costumer, Refs } from '@/types';
 
+	const Props = Vue.extend({
+		props: {
+			/** The HTTP code to display (optional) */
+			action: {
+				type: String,
+				default: 'default'
+			}
+		}
+	});
 	@Component
-	export default class CostumerForm extends Vue {
+	export default class CostumerForm extends Props {
 		// Refs
 		$refs!: Refs<{
 			form: HTMLFormElement;
@@ -72,13 +81,13 @@
 			lastname: '',
 			firstname: '',
 			email: '',
-			adresse:'',
+			adresse: '',
 			zipcode: '',
-			region:''
+			region: ''
 		};
 		valid = true;
 		nameRules = [
-            (v: any) => !!v || 'Name is required',
+			(v: any) => !!v || 'Name is required',
 			(v: any) => (v && v.length <= 20) || 'Name must be less than 10 characters'
 		];
 
@@ -87,17 +96,43 @@
 			(v: any) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
 		];
 
+		actions() {
+			switch (this.action) {
+				case 'add' :
+					this.validate();
+					break;
+				case 'update':
+					break;
+			}
+		}
+
+		mod() {
+			switch (this.action) {
+				case 'add' :
+					this.reset();
+					break;
+				case 'update':
+					break;
+			}
+		}
+
 		validate() {
 			if (this.$refs.form.validate()) {
 				this.costumer.id = Math.floor(Math.random() * 100);
-				console.log(' show costumers ', this.costumer);
 				this.$store.dispatch('costumersWorkflow/addCostumer', this.costumer);
-				this.$router.push({ name:'home' });
+				this.$router.push({ name: 'home' });
 			}
 		}
 
 		reset() {
 			this.$refs.form.reset();
+		}
+
+		created() {
+			// eslint-disable-next-line no-mixed-spaces-and-tabs
+			if (this.$route.name == 'costumers-details') {
+				this.costumer = this.$route.query.costumer as {};
+			}
 		}
 	}
 </script>
