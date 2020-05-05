@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App.vue renders correctly 1`] = `
+<vapp-stub id="app" class="main-ctn">
+  <appheader-stub></appheader-stub>
+  <apptoolbar-stub></apptoolbar-stub>
+  <notificationbar-stub closetext="Fermer"></notificationbar-stub>
+  <vcontent-stub tag="main" role="main">
+    <transition-stub name="fade" mode="out-in">
+      <routerview-stub name="default"></routerview-stub>
+    </transition-stub>
+  </vcontent-stub>
+  <appfooter-stub></appfooter-stub>
+</vapp-stub>
+`;

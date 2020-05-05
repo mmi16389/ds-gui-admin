@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders correctly 1`] = `
+<pagecard-stub minheight="true" cardclass="py-4 px-5 layout column align-start" cardpadding="px-6 py-4">
+  <h2 class="title font-weight-bold primary--text mb-4">
+    views.home.title
+  </h2>
+  <p>views.home.description.block1</p>
+  <p>views.home.description.block2</p>
+  <routerlink-stub to="views.home.about.to" tag="a" event="click">
+    views.home.about.label
+  </routerlink-stub>
+  <vspacer-stub></vspacer-stub>
+  <vbtn-stub color="accent" tag="button" activeclass="" outlined="true" type="button">
+    views.home.notify
+  </vbtn-stub>
+</pagecard-stub>
+`;

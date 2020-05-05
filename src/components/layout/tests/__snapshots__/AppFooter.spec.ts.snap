@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppFooter renders correctly 1`] = `
+<vlayout-stub tag="footer" align-center="" justify-center="" role="footer" class="footer white px-3 py-2"><span class="grey lighten-4 px-3 py-1 secondary--text"><span class="font-weight-bold">
+			components.layout.appFooter.versionLabel 
+		</span>
+
+  components.layout.appFooter.date
+  </span></vlayout-stub>
+`;

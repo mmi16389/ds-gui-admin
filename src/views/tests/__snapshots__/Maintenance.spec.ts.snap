@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Maintenance renders correctly 1`] = `<errorpage-stub code="views.maintenance.code" title="views.maintenance.title" message="views.maintenance.message" btnroute="[object Object]"></errorpage-stub>`;

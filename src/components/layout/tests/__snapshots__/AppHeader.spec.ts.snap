@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppHeader renders correctly 1`] = `
+<vappbar-stub height="75" tag="header" tile="true" extensionheight="48" src="" value="true" align-center="" class="no-flex">
+  <routerlink-stub to="components.layout.appHeader.logoBtn.link" tag="a" exact="true" event="click" aria-label="components.layout.appHeader.logoBtn.label" class="logo-link"><img alt="components.layout.appHeader.logoBtn.alt" src="../../assets/logo.svg" class="d-block mx-auto logo"></routerlink-stub>
+  <vdivider-stub inset="true" vertical="true"></vdivider-stub>
+  <h1 class="title grey--text text--darken-3 ml-4">
+    components.layout.appHeader.title
+  </h1>
+  <headermenu-stub></headermenu-stub>
+</vappbar-stub>
+`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Links renders correctly 1`] = `
+<div>
+  <!---->
+  <ul class="links">
+    <li><a href="https://github.com/assurance-maladie-digital/design-system">
+        Design System
+      </a></li>
+  </ul>
+</div>
+`;

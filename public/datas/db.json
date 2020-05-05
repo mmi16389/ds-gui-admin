@@ -1,0 +1,13 @@
+{
+	"costumers": [
+		{
+			"id": 1,
+			"firstname": "Maryvon",
+			"lastname": "Maryvon",
+			"email": "maryvon.michel@gmail.com",
+			"adresse": "10 allee des pins",
+			"zipcode": "95350",
+			"region": "ile de france"
+		}
+	]
+}

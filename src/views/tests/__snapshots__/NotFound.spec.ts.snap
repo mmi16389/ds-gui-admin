@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound renders correctly 1`] = `<errorpage-stub code="views.notFound.code" title="views.notFound.error" message="views.notFound.message" cta="views.notFound.cta" btnroute="[object Object]"></errorpage-stub>`;

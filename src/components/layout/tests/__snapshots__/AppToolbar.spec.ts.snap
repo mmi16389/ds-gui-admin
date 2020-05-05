@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppToolbar renders correctly 1`] = `
+<vtoolbar-stub tag="section" tile="true" dense="true" extensionheight="48" src="" class="secondary no-flex">
+  <vtabs-stub dark="true" activeclass="" backgroundcolor="transparent" mobilebreakpoint="1264" nexticon="$next" previcon="$prev" slidersize="2">
+    <vtab-stub exact="true" to="[object Object]" ripple="true">
+      Test 1
+    </vtab-stub>
+    <vtab-stub to="[object Object]" ripple="true">
+      Test 2
+    </vtab-stub>
+  </vtabs-stub>
+</vtoolbar-stub>
+`;
