@@ -9,7 +9,7 @@ const http = httpService(instance);
  */
 export function allCostumers() {
 	let costumers: any = [];
-	http.admin.getAllAdmin().then((resp: AxiosResponse) => {
+	http.costumer.getAll().then((resp: AxiosResponse) => {
 		costumers = resp.data;
 		store.dispatch('costumersWorkflow/loadCostumers', costumers);
 	});

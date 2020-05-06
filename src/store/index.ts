@@ -21,10 +21,7 @@ const store: StoreOptions<RootState> = {
 	modules: {
 		notification,
 		costumersWorkflow
-	},
-	plugins: [
-		vuexLocal.plugin
-	]
+	}
 };
 
 export default new Vuex.Store<RootState>(store);

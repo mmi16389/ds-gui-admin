@@ -24,7 +24,7 @@
 			</v-card-title>
 			<VDataTable
 				:headers="headers"
-				:items="costumers"
+				:items="costusmers"
 				:search="search"
 				class="overflow-table row-clickable"
 				@click:row="itemClicked"
@@ -36,12 +36,11 @@
 <script lang="ts">
 	import Component, { mixins } from 'vue-class-component';
 	import Vue from 'vue';
-	import { AxiosResponse } from 'axios';
-	import store from '@/store';
 
 	@Component
 	export default class Costumers extends Vue {
 		searchTerm = '';
+		costusmers = new Array<Costumers>();
 
 		get headers() {
 			const tableHeaders = this.$t('components.workflow.costumers.headers');
@@ -52,8 +51,11 @@
 			return '';
 		}
 
-		get costumers() {
-			return this.$store.getters['costumersWorkflow/costumers'];
+		created() {
+			this.costusmers = this.$store.getters['costumersWorkflow/costumers'];
+			this.$bus.$on('update-table', (payload: string) => {
+				this.costusmers = [...this.$store.getters['costumersWorkflow/costumers']];
+			});
 		}
 
 		itemClicked($event: any) {
@@ -61,10 +63,5 @@
 			});
 		}
 
-		allCostumers() {
-			this.$http.admin.getAllAdmin().then((resp: AxiosResponse) => {
-				this.$store.dispatch('costumersWorkflow/loadCostumers', resp.data);
-			});
-		}
 	}
 </script>

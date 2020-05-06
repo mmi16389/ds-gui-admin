@@ -19,6 +19,7 @@ import '@/components/workflow-admin';
 // Remove "tip" from browser console
 Vue.config.productionTip = false;
 Vue.prototype.$http = httpService(instance);
+Vue.prototype.$bus = new Vue();
 // Create main Vue instance
 new Vue({
 	router,

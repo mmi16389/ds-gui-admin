@@ -49,7 +49,7 @@
 			<v-btn
 				color="success"
 				class="mr-4"
-				@click="mod"
+				@click="modulo"
 			>
 				{{ action==='update'?'SUPPRIMER':'RAFRAICHIR' }}
 			</v-btn>
@@ -64,7 +64,6 @@
 
 	const Props = Vue.extend({
 		props: {
-			/** The HTTP code to display (optional) */
 			action: {
 				type: String,
 				default: 'default'
@@ -96,6 +95,13 @@
 			(v: any) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
 		];
 
+		created() {
+			// eslint-disable-next-line no-mixed-spaces-and-tabs
+			if (this.$route.name == 'costumers-details') {
+				this.costumer = this.$route.query.costumer as {};
+			}
+		}
+
 		actions() {
 			switch (this.action) {
 				case 'add' :
@@ -107,39 +113,38 @@
 			}
 		}
 
-		mod() {
+		modulo() {
 			switch (this.action) {
 				case 'add' :
 					this.reset();
 					break;
 				case 'update':
+					this.delete();
 					break;
 			}
 		}
 
 		validate() {
 			if (this.$refs.form.validate()) {
-				this.$http.admin.addCostumer(this.costumer);
+				this.$http.costumer.add(this.costumer);
 			}
 		}
 
 		update() {
 			if (this.$refs.form.validate()) {
-				this.$http.admin.updateCostumer(this.costumer);
+				this.$http.costumer.update(this.costumer);
 				this.$router.push({ name: 'home' });
-				// this.$emit('close-popup', 'true');
+				this.$bus.$emit('update-table', 'true');
 			}
+		}
+
+		delete() {
+			this.$http.costumer.delete(this.costumer);
+			this.$router.push({ name: 'home' });
 		}
 
 		reset() {
 			this.$refs.form.reset();
-		}
-
-		created() {
-			// eslint-disable-next-line no-mixed-spaces-and-tabs
-			if (this.$route.name == 'costumers-details') {
-				this.costumer = this.$route.query.costumer as {};
-			}
 		}
 	}
 </script>

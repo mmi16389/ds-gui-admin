@@ -20,6 +20,9 @@ export const actions: ActionTree<CostumersState, RootState> = {
 	},
 	updateCostumer: (context, payload: Costumer) => {
 		context.commit('UPDATE_COSTUMER', payload);
+	},
+	deleteCostumer: (context, payload: Costumer) => {
+		context.commit('DELETE_COSTUMER', payload);
 	}
 };
 /**
@@ -30,9 +33,16 @@ export const mutations: MutationTree<CostumersState> = {
 		state.costumers = costumers;
 	},
 	ADD_COSTUMER: (state, costumers: Costumer) => {
+		let a = -1;
 		// @ts-ignore
+		costumers.id = Math.floor(Math.random() * 1000);
+		// @ts-ignore
+		a = state.costumers.findIndex((costumer: Costumer) => costumer.id === costumer.id);
+		if (a !== -1) {
+			// @ts-ignore // Math.floor(Math.random() * 100)
+			costumers.id++;
+		}
 		state.costumers?.push(costumers);
-		console.log(' sate ', state.costumers)
 	},
 	UPDATE_COSTUMER: (state, costumer: Costumer) => {
 		let u = -1;
@@ -41,6 +51,15 @@ export const mutations: MutationTree<CostumersState> = {
 		if (u !== -1) {
 			// @ts-ignore
 			state.costumers[u] = costumer;
+		}
+	},
+	DELETE_COSTUMER: (state, costumer: Costumer) => {
+		let d = -1;
+		// @ts-ignore
+		d = state.costumers.findIndex((costumer: Costumer) => costumer.id === costumer.id);
+		if (d !== -1) {
+			// @ts-ignore
+			state.costumers.splice(d, 1);
 		}
 	}
 };
