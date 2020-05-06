@@ -7,7 +7,7 @@ const http = httpService(instance);
 /**
  *  Call all costumers
  */
-export function allCostumers() {
+function allCostumers() {
 	let costumers: any = [];
 	http.admin.getAllAdmin().then((resp: AxiosResponse) => {
 		costumers = resp.data;

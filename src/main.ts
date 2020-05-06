@@ -16,9 +16,14 @@ import './components/global';
 import httpService from '@/services/api/index';
 import instance from '@/plugins/axios';
 import '@/components/workflow-admin';
+
+const eventBus = new Vue();
+// import { eventBus } from './types';
 // Remove "tip" from browser console
 Vue.config.productionTip = false;
 Vue.prototype.$http = httpService(instance);
+Vue.prototype.$eventBus = eventBus;
+
 // Create main Vue instance
 new Vue({
 	router,

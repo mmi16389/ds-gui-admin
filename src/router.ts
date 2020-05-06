@@ -9,7 +9,7 @@ import costumersList from '@/components/workflow-admin/Costumers.vue';
 import costumersAdd from '@/components/workflow-admin/CostumersNew.vue'
 // Directly import Home view for faster rendering of first page
 import CostumersDetails from '@/components/workflow-admin/CostumersDetails.vue';
-
+import costumersView from '@/views/CostumersView.vue';
 Vue.use(VueRouter);
 Vue.use(VueMeta, {
 	refreshOnceOnNavigation: true
@@ -26,7 +26,7 @@ const routes = [
 	},
 	{
 		path: '/costumer',
-		component: () => import(/* webpackChunkName: costumers-home */ './views/CostumersView.vue'),
+		component: costumersView,
 		children: [
 			{
 				name: 'home',
@@ -44,6 +44,9 @@ const routes = [
 				components: {
 					default: costumersList,
 					dialog: CostumersDetails
+				},
+				meta: {
+					dialog: true
 				}
 			}
 		]

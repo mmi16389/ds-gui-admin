@@ -29,3 +29,4 @@ export interface NextRoute {
  * }>;
  */
 export type Refs<T extends object> = Vue['$refs'] & T;
+

@@ -9,7 +9,7 @@
 				<v-spacer />
 				<VBtn
 					class="ml-2"
-					@click="$router.push({ name:'add-new-costumers' })"
+					@click="addNewUser"
 				>
 					AJOUTER UN ASSUREE
 				</VBtn>
@@ -37,11 +37,12 @@
 	import Component, { mixins } from 'vue-class-component';
 	import Vue from 'vue';
 	import { AxiosResponse } from 'axios';
-	import store from '@/store';
 
 	@Component
 	export default class Costumers extends Vue {
 		searchTerm = '';
+		costumers = new Array<Costumers>();
+		idTable = '1';
 
 		get headers() {
 			const tableHeaders = this.$t('components.workflow.costumers.headers');
@@ -52,18 +53,26 @@
 			return '';
 		}
 
-		get costumers() {
-			return this.$store.getters['costumersWorkflow/costumers'];
-		}
-
 		itemClicked($event: any) {
 			this.$router.push({ name: 'costumers-details', query: { dialog: 'true', costumer: $event } }).catch(() => {
 			});
 		}
 
+		created() {
+			this.costumers = this.$store.getters.costumers;
+			this.$eventBus.$on('on-table', (value: string) => {
+				this.costumers = [];
+				this.costumers = [...this.$store.getters.costumers];
+			});
+		}
+
+		addNewUser() {
+			this.$router.push({ name: 'add-new-costumers' });
+		}
+
 		allCostumers() {
 			this.$http.admin.getAllAdmin().then((resp: AxiosResponse) => {
-				this.$store.dispatch('costumersWorkflow/loadCostumers', resp.data);
+				this.costumers = this.$store.getters.costumers;
 			});
 		}
 	}

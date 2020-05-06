@@ -19,7 +19,7 @@ export class Admin {
 		/*await this.axios.post('/costumers', costumer).then((resp: AxiosResponse) => {
 		});*/
 		costumer.id = Math.floor(Math.random() * 100);
-		store.dispatch('costumersWorkflow/addCostumer', costumer);
+		store.dispatch('addCostumer', costumer);
 		router.push({ name: 'home' });
 	}
 
@@ -30,6 +30,6 @@ export class Admin {
 	public async updateCostumer(costumer: Costumer) {
 		/*await this.axios.put('', costumer).then((resp: AxiosResponse) => {
 		});*/
-		store.dispatch('costumersWorkflow/updateCostumer', costumer);
+		store.dispatch('updateCostumer', costumer);
 	}
 }

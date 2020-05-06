@@ -10,15 +10,16 @@
 	import Vue from 'vue';
 	import { AxiosResponse } from 'axios';
 
-@Component({
-  components: {
-    Costumers
-  }
-})
-	export default class CostumersView extends Vue {}
+	@Component({
+		components: {
+			Costumers
+		}
+	})
+	export default class CostumersView extends Vue {
+	}
 </script>
 <style lang="scss">
-#inspire-costumer {
-  padding: 20px;
-}
+    #inspire-costumer {
+        padding: 20px;
+    }
 </style>

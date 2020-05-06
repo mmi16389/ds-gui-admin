@@ -127,6 +127,7 @@
 			if (this.$refs.form.validate()) {
 				this.$http.admin.updateCostumer(this.costumer);
 				this.$router.push({ name: 'home' });
+				this.$eventBus.$emit('on-table', 'true');
 				// this.$emit('close-popup', 'true');
 			}
 		}

@@ -45,5 +45,9 @@
 			this.dialog = false;
 			this.$router.push({ name: 'home' });
 		}
+
+		updated() {
+			console.log(' componenent is updated');
+		}
 	}
 </script>
