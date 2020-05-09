@@ -37,7 +37,7 @@
 				label="Votre Région"
 			/>
 			<v-spacer />
-			<v-btn
+		<!--	<v-btn
 				:disabled="!valid"
 				color="primary"
 				class="mr-4"
@@ -52,7 +52,7 @@
 				@click="modulo"
 			>
 				{{ action==='update'?'SUPPRIMER':'RAFRAICHIR' }}
-			</v-btn>
+			</v-btn> //-->
 		</VForm>
 	</v-app>
 </template>
@@ -61,6 +61,7 @@
 	import Component from 'vue-class-component';
 	import Vue from 'vue';
 	import { Costumer, Refs } from '@/types';
+	import { AxiosResponse } from 'axios';
 
 	const Props = Vue.extend({
 		props: {
@@ -132,15 +133,12 @@
 
 		update() {
 			if (this.$refs.form.validate()) {
-				this.$http.costumer.update(this.costumer);
-				this.$router.push({ name: 'home' });
-				this.$bus.$emit('update-table', 'true');
+				this.$http.costumer.update(this.costumer).catch(()=>{});
 			}
 		}
 
 		delete() {
 			this.$http.costumer.delete(this.costumer);
-			this.$router.push({ name: 'home' });
 		}
 
 		reset() {

@@ -23,6 +23,7 @@ const instance = axios.create({
 const DEFAULT_ERROR_MESSAGE = common.defaultErrorMessage;
 
 // Response interceptor to handle errors globally
+/*
 instance.interceptors.response.use(undefined, (error: AxiosError) => {
 	let errorMessage: string;
 
@@ -46,5 +47,5 @@ instance.interceptors.response.use(undefined, (error: AxiosError) => {
 
 	return Promise.reject(error);
 });
-
+*/
 export default instance;

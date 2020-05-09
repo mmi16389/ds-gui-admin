@@ -5,14 +5,7 @@
 	>
 		<v-card>
 			<v-card-title>
-				Ajouter un nouveau assurée
-				<v-spacer />
-				<VBtn
-					class="ml-2"
-					@click="$router.push({name:'home'})"
-				>
-					RETOUR
-				</VBtn>
+				<v-card-title>Ajouter un nouveau Costumer :</v-card-title>
 			</v-card-title>
 			<CostumerForm :action="'add'" />
 		</v-card>

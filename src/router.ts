@@ -5,11 +5,8 @@ import VueMeta from 'vue-meta';
 
 import i18n, { loadLanguageAsync } from '@/i18n';
 import store from '@/store';
-import costumersList from '@/components/workflow-admin/Costumers.vue';
-import costumersAdd from '@/components/workflow-admin/CostumersNew.vue';
 import costumerView from '@/views/CostumersView.vue';
 // Directly import Home view for faster rendering of first page
-import CostumersDetails from '@/components/workflow-admin/CostumersDetails.vue';
 
 Vue.use(VueRouter);
 Vue.use(VueMeta, {
@@ -44,20 +41,6 @@ const routes = [
 					/* webpackChunkName: "add-costumers" */
 					'./components/workflow-admin/CostumersNew.vue'
 				)
-			},
-			{
-				path: 'costumers-details',
-				name: 'costumers-details',
-				components: {
-					default: () => import(
-						/* webpackChunkName: "list-costumers" */
-						'./components/workflow-admin/Costumers.vue'
-					),
-					dialog: () => import(
-						/* webpackChunkName: "details-costumers" */
-						'./components/workflow-admin/CostumersDetails.vue'
-					)
-				}
 			}
 		]
 	},

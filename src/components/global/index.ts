@@ -15,11 +15,16 @@ function register(Vue: VueConstructor, componentList: Components) {
 import Vue from 'vue';
 
 import ErrorPage from './ErrorPage';
-import CostumerForm from '@/components/global/FormBuilder';
-
+import { CostumerForm, DocSection, FormBuilderText } from '@/components/global/FormBuilder';
+import DialogBox from '@/elements/DialogBox/DialogBox.vue';
+import ListButtonAction from '@/elements/ListButtonAction/ListButtonAction.vue';
 const components: Components = {
 	ErrorPage,
-	CostumerForm
+	CostumerForm,
+	FormBuilderText,
+	DocSection,
+	DialogBox,
+	ListButtonAction
 };
 
 register(Vue, components);
