@@ -5,7 +5,7 @@
 		@input="$emit('update:dialog',$event)"
 		@keydown.esc="close"
 	>
-		<VCard class="py-4 px-6">
+		<VCard class="py-6 px-6">
 			<VCardTitle class="pa-0 mb-5">
 				<h2 class="title font-weight-bold">
 					{{ title }}
@@ -26,7 +26,7 @@
 				<!-- Bloc of content  //-->
 				<VContainer>
 					<slot
-						name="body"
+						name="content"
 						:itemProps="item"
 					/>
 				</VContainer>

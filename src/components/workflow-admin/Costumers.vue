@@ -17,7 +17,7 @@
 			</VCardTitle>
 			<PaginatedTable
 				:headers="headers"
-				:items="costusmers"
+				:items="costumers"
 				:search="search"
 				:options="options"
 				:loading="loading"
@@ -31,7 +31,14 @@
 			:dialog.sync="dialog"
 			:button-actions="buttonActions"
 			title="MODIFIER OU SUPPRIMER"
-		/>
+		>
+			<template #content>
+				<CostumerForm
+					ref="formCostumer"
+					v-model="costumer"
+				/>
+			</template>
+		</DialogBox>
 	</VApp>
 </template>
 
@@ -40,30 +47,42 @@
 	import Vue from 'vue';
 	import { Options } from '@cnamts/vue-dot/src/patterns/PaginatedTable/types';
 	import { AxiosResponse } from 'axios';
-	import { Costumer } from '@/types';
+	import { Costumer, Refs } from '@/types';
 	import { ButtonAction } from '@/elements/ListButtonAction';
+	import CostumerForm from '@/components/global/FormBuilder/CostumerForm.vue';
 
-	@Component
+	@Component({
+		components: { CostumerForm }
+	})
 	export default class Costumers extends Vue {
+		// Refs
+		$refs!: Refs<{
+			formCostumer: {
+				update: () => void,
+				delete: () => void
+			};
+		}>;
 		searchTerm = '';
-		costusmers = new Array<Costumer>();
+		costumers = new Array<Costumer>();
 		totalCostumers = 100;
 		// Default value for options
 		options = {} as Options;
 		loading = true;
 		dialog = false;
-		costumer: Costumer = { firstname: '', lastname: '', email: '' };
+		costumer: Costumer = {};
 		buttonActions: ButtonAction[] = [
 			{
-				label: 'Valider',
+				label: 'Modifier',
 				type: 'submit',
 				action: () => {
+					this.$refs.formCostumer.update();
 				}
 			},
 			{
 				label: 'Supprimer',
-				type: 'refresh',
+				type: 'validate',
 				action: () => {
+					this.$refs.formCostumer.delete();
 				}
 			}
 		];
@@ -81,13 +100,14 @@
 			this.allCostumers();
 		}
 
-		itemClicked() {
+		itemClicked($event: any) {
 			this.dialog = true;
+			this.costumer = $event;
 		}
 
 		allCostumers() {
 			this.$http.costumer.getAll().then((resp: AxiosResponse) => {
-				this.costusmers = resp.data;
+				this.costumers = resp.data;
 				this.loading = false;
 			});
 		}
