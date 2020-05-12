@@ -31,7 +31,7 @@ const routes = [
 				path: '',
 				component: () => import(
 					/* webpackChunkName: "list-costumers" */
-					'./components/workflow-admin/Costumers.vue'
+					'./components/workflow-costumer/Costumers.vue'
 				)
 			},
 			{
@@ -39,7 +39,7 @@ const routes = [
 				name: 'add-new-costumers',
 				component: () => import(
 					/* webpackChunkName: "add-costumers" */
-					'./components/workflow-admin/CostumersNew.vue'
+					'./components/workflow-costumer/CostumersNew.vue'
 				)
 			}
 		]

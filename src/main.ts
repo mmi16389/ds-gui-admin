@@ -15,7 +15,7 @@ import i18n from './i18n';
 import './components/global';
 import httpService from '@/services/api/index';
 import instance from '@/plugins/axios';
-import '@/components/workflow-admin';
+import '@/components/workflow-costumer';
 // Remove "tip" from browser console
 Vue.config.productionTip = false;
 Vue.prototype.$http = httpService(instance);

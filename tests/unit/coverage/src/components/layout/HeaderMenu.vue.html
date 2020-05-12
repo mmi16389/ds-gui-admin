@@ -22,30 +22,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>0/9</span>
             </div>
         
             
@@ -54,7 +54,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -241,14 +241,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -258,15 +258,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -359,14 +359,14 @@
 &lt;/template&gt;
 &nbsp;
 &lt;script lang="ts"&gt;
-	import Vue from 'vue';
-	import Component from 'vue-class-component';
+<span class="cstat-no" title="statement not covered" >	import Vue from 'vue';</span>
+<span class="cstat-no" title="statement not covered" >	import Component from 'vue-class-component';</span>
 &nbsp;
 	import { mapActions, mapState } from 'vuex';
 &nbsp;
 	import { NextRoute } from '@/types';
 &nbsp;
-	import { mdiAccount, mdiLogoutVariant } from '@mdi/js';
+<span class="cstat-no" title="statement not covered" >	import { mdiAccount, mdiLogoutVariant } from '@mdi/js';</span>
 &nbsp;
 	interface LinkItem {
 		title: string;
@@ -376,15 +376,15 @@
 &nbsp;
 	/** User profile button in the HeaderBar */
 	@Component
-	export default class HeaderMenu extends Vue {
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >	export default class HeaderMenu extends Vue {</span></span></span>
 		// Icons
-		userIcon = mdiAccount;
-		logoutIcon = mdiLogoutVariant;
+<span class="cstat-no" title="statement not covered" >		userIcon = mdiAccount;</span>
+<span class="cstat-no" title="statement not covered" >		logoutIcon = mdiLogoutVariant;</span>
 &nbsp;
-		get links() {
-			return this.$t('components.layout.headerMenu.links') as unknown as LinkItem[];
+<span class="cstat-no" title="statement not covered" >		get links() {</span>
+<span class="cstat-no" title="statement not covered" >			return this.$t('components.layout.headerMenu.links') as unknown as LinkItem[];</span>
 		}
-	}
+<span class="cstat-no" title="statement not covered" >	}</span>
 &lt;/script&gt;
 &nbsp;
 &lt;style lang="scss" scoped&gt;
@@ -417,7 +417,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue May 05 2020 11:47:31 GMT+0200 (GMT+02:00)
+                at Tue May 12 2020 08:28:50 GMT+0200 (GMT+02:00)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

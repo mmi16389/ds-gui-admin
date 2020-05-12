@@ -20,7 +20,7 @@ if (!config.mocks) {
 // Mock i18n functions
 config.mocks.$t = (key: string) => key;
 config.mocks.$tc = (key: string) => key;
-
+config.mocks.sort =(key:string)=>key;
 // Create empty router and export it
 import VueRouter, { RouterOptions } from 'vue-router';
 

@@ -82,12 +82,11 @@
 			(v: any) => !!v || 'E-mail is required',
 			(v: any) => /.+@.+\..+/.test(v) || 'E-mail must be valid'
 		];
-		costumer: Costumer = {};
 
 		actions() {
 			switch (this.action) {
 				case 'add' :
-					this.validate();
+					this.add();
 					break;
 				case 'update':
 					this.update();
@@ -106,7 +105,7 @@
 			}
 		}
 
-		validate() {
+		add() {
 			if (this.$refs.form.validate()) {
 				this.$http.costumer.add(this.field);
 			}

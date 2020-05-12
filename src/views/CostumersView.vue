@@ -6,7 +6,7 @@
 </template>
 <script lang='ts'>
 	import Component from 'vue-class-component';
-	import { Costumers } from '@/components/workflow-admin';
+	import { Costumers } from '@/components/workflow-costumer';
 	import Vue from 'vue';
 	import { AxiosResponse } from 'axios';
 
