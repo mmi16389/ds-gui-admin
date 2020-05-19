@@ -1,4 +1,4 @@
-import formBuilderDirectives from '@/directives/costumers-form.directives';
+import formBuilderDirectives from '@/directives/config';
 
 export {
 	formBuilderDirectives

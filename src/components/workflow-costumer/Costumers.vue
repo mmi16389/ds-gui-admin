@@ -28,6 +28,7 @@
 			<VSpacer />
 		</VCard>
 		<DialogBox
+			v-draggable
 			:dialog.sync="dialog"
 			:button-actions="buttonActions"
 			title="MODIFIER OU SUPPRIMER"
@@ -50,9 +51,10 @@
 	import { Costumer, Refs } from '@/types';
 	import { ButtonAction } from '@/elements/ListButtonAction';
 	import CostumerForm from '@/components/global/FormBuilder/CostumerForm.vue';
+	import * as config from '@/directives/config';
 
 	@Component({
-		components: { CostumerForm }
+		components: { CostumerForm , config }
 	})
 	export default class Costumers extends Vue {
 		// Refs
